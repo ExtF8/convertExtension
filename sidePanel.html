@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Converter</title>
+        <link rel="stylesheet" href="style.css" />
+        <script type="module" src="sidePanel.js"></script>
+    </head>
+    <body>
+        <main class="main-container">
+            <section class="currency-container">
+                <h2 class="currency">Converter</h2>
+                <label for="eurToUsd">EUR to USD:</label>
+                <input id="eurToUsd" type="number" placeholder="Amount in EUR" />
+
+                <div class="result-container">
+                    <p class="result">USD</p>
+                    <p id="resultEurToUsd" class="result"> </p>
+                </div>
+
+                <label for="usdToEur">USD to EUR:</label>
+                <input id="usdToEur" type="number" placeholder="Amount in USD" />
+                <div class="result-container">
+                    <p class="result">EUR</p>
+                    <p id="resultUsdToEur" class="result"> </p>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

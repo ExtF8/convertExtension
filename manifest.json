@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "Converter",
+    "version": "1.0",
+    "description": "Converts currencies and clothing measurements",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_title": "Click to open side panel"
+    },
+    "side_panel": {
+        "default_path": "sidePanel.html"
+    },
+    "permissions": ["storage", "activeTab", "sidePanel"],
+    "icons": {
+        "16": "./icons/extensionON_small.png",
+        "48": "./icons/extensionON_small.png",
+        "128": "./icons/extensionON_small.png"
+    }
+}
