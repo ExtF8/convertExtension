@@ -1,11 +1,10 @@
-const CURRENCIES_API_URL = () => {
-    return `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/eur.min.json`;
+const CURRENCIES_API_URL = (date, currency) => {
+    return `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@${date}/v1/currencies/${currency}.min.json`;
 };
 
-
-async function fetchCurreciesApi() {
+async function fetchCurreciesApi(date, currency) {
     try {
-        const response = await fetch(CURRENCIES_API_URL(), {
+        const response = await fetch(CURRENCIES_API_URL(date, currency), {
             method: 'GET',
         });
 
@@ -20,13 +19,37 @@ async function fetchCurreciesApi() {
     }
 }
 
-
-async function getCurreciesData() {
-    const response = await fetchCurreciesApi();
+async function getCurrenciesData(date, currency) {
+    const response = await fetchCurreciesApi(date, currency);
     const responseData = await response.json();
-    console.log(responseData.eur.usd)
     return responseData;
 }
 
+async function calculateRate(currency, value) {
+    let currentDate = getCurrentDate();
+    const responseData = await getCurrenciesData(currentDate, currency);
 
-await getCurreciesData()
+    let conversionRate;
+
+    if (currency === 'eur') {
+        conversionRate = responseData.eur.usd;
+    } else if (currency === 'usd') {
+        conversionRate = responseData.usd.eur;
+    } else {
+        throw new Error('Unsupported currency');
+    }
+
+    const result = value * conversionRate;
+
+    return result.toFixed(2);
+}
+
+function getCurrentDate() {
+    return new Date().toJSON().slice(0, 10);
+}
+
+let resultEurToUsd = await calculateRate('eur', 1);
+let resultUsdToEur = await calculateRate('usd', 1);
+
+console.log('resultEurToUsd: ', resultEurToUsd);
+console.log('resultUsdToEur: ', resultUsdToEur);
