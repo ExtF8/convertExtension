@@ -2,7 +2,7 @@ const CURRENCIES_API_URL = (date, currency) => {
     return `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@${date}/v1/currencies/${currency}.min.json`;
 };
 
-async function fetchCurreciesApi(date, currency) {
+async function fetchCurrenciesApi(date, currency) {
     try {
         const response = await fetch(CURRENCIES_API_URL(date, currency), {
             method: 'GET',
@@ -20,7 +20,7 @@ async function fetchCurreciesApi(date, currency) {
 }
 
 async function getCurrenciesData(date, currency) {
-    const response = await fetchCurreciesApi(date, currency);
+    const response = await fetchCurrenciesApi(date, currency);
     const responseData = await response.json();
     return responseData;
 }
