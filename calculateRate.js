@@ -19,13 +19,13 @@ async function fetchCurrenciesApi(date, currency) {
     }
 }
 
-export async function getCurrenciesData(date, currency) {
+async function getCurrenciesData(date, currency) {
     const response = await fetchCurrenciesApi(date, currency);
     const responseData = await response.json();
     return responseData;
 }
 
-async function calculateRate(currency, value) {
+export async function calculateRate(currency, value) {
     let currentDate = getCurrentDate();
     const responseData = await getCurrenciesData(currentDate, currency);
 
