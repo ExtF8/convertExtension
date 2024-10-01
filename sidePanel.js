@@ -11,7 +11,7 @@ document.getElementById('eurToUsd').addEventListener('input', async function () 
 
     try {
         const result = await calculateRate('eur', amount);
-        resultElement.textContent = `USD: ${result}`;
+        resultElement.textContent = `: ${result}`;
     } catch (error) {
         resultElement.textContent = 'Error converting EUR to USD.';
         console.error(error);
@@ -29,7 +29,7 @@ document.getElementById('usdToEur').addEventListener('input', async function () 
 
     try {
         const result = await calculateRate('usd', amount);
-        resultElement.textContent = `EUR: ${result}`;
+        resultElement.textContent = `: ${result}`;
     } catch (error) {
         resultElement.textContent = 'Error converting USD to EUR.';
         console.error(error);

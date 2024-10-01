@@ -4,39 +4,28 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Converter</title>
-        <style>
-            html {
-                height: 100%;
-            }
-            body {
-                font-family: Arial, Helvetica, sans-serif;
-                padding: 10px;
-                width: 250px;
-            }
-
-            input {
-                margin-bottom: 10px;
-                width: 100%;
-            }
-            label {
-                margin-top: 10px;
-                display: block;
-            }
-            .result {
-                margin-top: 5px;
-                font-weight: bold;
-            }
-        </style>
+        <link rel="stylesheet" href="style.css" />
         <script type="module" src="sidePanel.js"></script>
     </head>
     <body>
-        <h2>Converter</h2>
-        <label for="eurToUsd">EUR to USD:</label>
-        <input id="eurToUsd" type="number" placeholder="Amount in EUR" />
-        <p id="resultEurToUsd" class="result"></p>
+        <main class="main-container">
+            <section class="currency-container">
+                <h2 class="currency">Converter</h2>
+                <label for="eurToUsd">EUR to USD:</label>
+                <input id="eurToUsd" type="number" placeholder="Amount in EUR" />
 
-        <label for="usdToEur">USD to EUR:</label>
-        <input id="usdToEur" type="number" placeholder="Amount in USD" />
-        <p id="resultUsdToEur" class="result"></p>
+                <div class="result-container">
+                    <p class="result">USD</p>
+                    <p id="resultEurToUsd" class="result"> </p>
+                </div>
+
+                <label for="usdToEur">USD to EUR:</label>
+                <input id="usdToEur" type="number" placeholder="Amount in USD" />
+                <div class="result-container">
+                    <p class="result">EUR</p>
+                    <p id="resultUsdToEur" class="result"> </p>
+                </div>
+            </section>
+        </main>
     </body>
 </html>
