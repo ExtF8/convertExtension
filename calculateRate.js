@@ -19,7 +19,7 @@ async function fetchCurrenciesApi(date, currency) {
     }
 }
 
-async function getCurrenciesData(date, currency) {
+export async function getCurrenciesData(date, currency) {
     const response = await fetchCurrenciesApi(date, currency);
     const responseData = await response.json();
     return responseData;
@@ -48,8 +48,8 @@ function getCurrentDate() {
     return new Date().toJSON().slice(0, 10);
 }
 
-let resultEurToUsd = await calculateRate('eur', 1);
-let resultUsdToEur = await calculateRate('usd', 1);
+// let resultEurToUsd = await calculateRate('eur', 1);
+// let resultUsdToEur = await calculateRate('usd', 1);
 
-console.log('resultEurToUsd: ', resultEurToUsd);
-console.log('resultUsdToEur: ', resultUsdToEur);
+// console.log('resultEurToUsd: ', resultEurToUsd);
+// console.log('resultUsdToEur: ', resultUsdToEur);
