@@ -9,23 +9,45 @@
     </head>
     <body>
         <main class="main-container">
-            <section class="currency-container">
-                <h2 class="currency">Converter</h2>
-                <label for="eurToUsd">EUR to USD:</label>
-                <input id="eurToUsd" type="number" placeholder="Amount in EUR" />
-
-                <div class="result-container">
-                    <p class="result">USD</p>
-                    <p id="resultEurToUsd" class="result"> </p>
+            <div class="currency-container">
+                <h2>Currency</h2>
+                <!-- input section-->
+                <div class="currency-input-container">
+                    <div class="currency-input">
+                        <label for="eur_input">From EUR</label>
+                        <input
+                            type="number"
+                            id="eur_input"
+                        />
+                    </div>
+                    <div class="currency-input">
+                        <label for="usd_input">From USD</label>
+                        <input
+                            type="number"
+                            id="usd_input"
+                        />
+                    </div>
                 </div>
-
-                <label for="usdToEur">USD to EUR:</label>
-                <input id="usdToEur" type="number" placeholder="Amount in USD" />
-                <div class="result-container">
-                    <p class="result">EUR</p>
-                    <p id="resultUsdToEur" class="result"> </p>
+                <!-- output section-->
+                <div class="currency-output-container">
+                    <div class="currency-outputs">
+                        <label for="usd_output">to USD</label>
+                        <input
+                            type="number"
+                            id="usd_output"
+                            readonly
+                        />
+                    </div>
+                    <div class="currency-outputs">
+                        <label for="eur_output">to EUR</label>
+                        <input
+                            type="number"
+                            id="eur_output"
+                            readonly
+                        />
+                    </div>
                 </div>
-            </section>
+            </div>
         </main>
     </body>
 </html>

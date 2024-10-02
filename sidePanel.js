@@ -1,37 +1,38 @@
 import { calculateRate } from './calculateRate.js';
 
-document.getElementById('eurToUsd').addEventListener('input', async function () {
-    const amount = document.getElementById('eurToUsd').value;
-    const resultElement = document.getElementById('resultEurToUsd');
+// Currency: needs some refactor
+document.getElementById('eur_input').addEventListener('input', async function () {
+    const amount = document.getElementById('eur_input').value;
+    const resultElement = document.getElementById('usd_output');
 
     if (!amount) {
-        resultElement.textContent = '';
+        resultElement.value = 'Please enter a valid amount!';
         return;
     }
 
     try {
         const result = await calculateRate('eur', amount);
-        resultElement.textContent = `: ${result}`;
+        resultElement.value = result;
     } catch (error) {
-        resultElement.textContent = 'Error converting EUR to USD.';
+        resultElement.innerText = 'Error converting EUR to USD.';
         console.error(error);
     }
 });
 
-document.getElementById('usdToEur').addEventListener('input', async function () {
-    const amount = document.getElementById('usdToEur').value;
-    const resultElement = document.getElementById('resultUsdToEur');
+document.getElementById('usd_input').addEventListener('input', async function () {
+    const amount = document.getElementById('usd_input').value;
+    const resultElement = document.getElementById('eur_output');
 
     if (!amount) {
-        resultElement.textContent = '';
+        resultElement.innerText = 'Please enter a valid amount!';
         return;
     }
 
     try {
         const result = await calculateRate('usd', amount);
-        resultElement.textContent = `: ${result}`;
+        resultElement.value = result;
     } catch (error) {
-        resultElement.textContent = 'Error converting USD to EUR.';
+        resultElement.innerText = 'Error converting USD to EUR.';
         console.error(error);
     }
 });
