@@ -1,18 +1,15 @@
 /* Global Styles and Variables */
 :root {
-    --dark: #082032;
-    --medium: #2c394b;
-    --light: #35d7ff;
-    --accent: #ff6a3e;
-    --sunny: #f7f339;
-    --clouds: #939496;
-    --rain: #5387e1;
-    --snow: #ffffff;
-    --clear: #87ceeb;
+    --dark-fern: #495235;
+    --harvest-gold: #da983c;
+    --chestnut: #90533b;
+    --moss-green: #8f9562;
+    --wheat: #f4ddb8;
+    --brown-sugar: #b87b5c;
     --loader: #046d8b;
     --borderDefault: #131313;
     --bodyTextColorWhite: #fafbfc;
-    --bodyTextColorGray: #313131;
+    --bodyTextColorGray: #222222;
     --error: #e82e00;
 
     --border_shadow: 0px 0px 10px 2px, inset 0px 0px 10px 2px;
@@ -27,6 +24,7 @@
 *::after {
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
+    color: var(--bodyTextColorGray);
     margin: 0;
     padding: 0;
 }
@@ -86,13 +84,13 @@ label {
     gap: 20px;
     width: 100%;
     height: 100vh;
-    background-color: #e6e6e6;
+    background-color: var(--wheat);
     /* border: 1px solid green; */
 }
 
 /* Currency styling parameters */
 .currency-container {
-    background-color: cornflowerblue;
+    background-color: var(--brown-sugar);
 
     border-radius: 10px;
     margin: 10px;
@@ -128,7 +126,7 @@ label {
 
 /* Body measures */
 .measures-container {
-    background-color: chocolate;
+    background-color: var(--harvest-gold);
 
     border-radius: 10px;
     margin: 10px;
@@ -262,7 +260,7 @@ label {
     display: flex;
     flex-direction: column;
 
-    background-color: cadetblue;
+    background-color: var(--moss-green);
 
     border-radius: 10px;
     margin: 10px;
@@ -346,5 +344,5 @@ label {
 }
 
 .underline {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--borderDefault);
 }
