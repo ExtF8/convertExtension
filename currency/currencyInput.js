@@ -1,3 +1,4 @@
+import { getInputValue, displayError } from '../utils/utils.js';
 import { calculateRate } from './calculateRate.js';
 
 export class CurrencyConverter {
@@ -10,18 +11,42 @@ export class CurrencyConverter {
     }
 
     async handleInputChanges(event) {
-        const value = this.getInputValue(event.target);
+        // Clear the error message
+        displayError('', 'error-message-currency');
+        let value = getInputValue(event.target);
         const baseCurrency = event.target.getAttribute('data-input-type');
 
+        // let value = event.target.value;
+        console.log(value);
+
+        // Replace commas with periods (for locales that use commas)
+        value = value.replace(',', '.');
+
+        // Validate that input only contains numbers and a single period (decimal point)
+        if (!/^(\d*\.?\d*)$/.test(value)) {
+            displayError(
+                '*Invalid format. Please enter a valid decimal number.',
+                'error-message-currency'
+            );
+            return;
+        }
+
+        // Set the value back to the input to reflect correct format (e.g., allowing "34.")
+        event.target.value = value;
+
+        // If value is now a valid number, proceed with conversion
+        const floatValue = parseFloat(value);
+
         if (isNaN(value)) {
-            this.displayError(
-                `*Error converting ${baseCurrency.toUpperCase()} to the other currency.`
+            displayError(
+                `*Error converting ${baseCurrency.toUpperCase()} to the other currency.`,
+                'error-message-currency'
             );
             console.error('Invalid input type');
             return;
         }
 
-        await this.processCalculations(baseCurrency, value);
+        await this.processCalculations(baseCurrency, floatValue);
     }
 
     async processCalculations(baseCurrency, value) {
@@ -39,8 +64,9 @@ export class CurrencyConverter {
                 this.currencyOutputs.eur = result;
             }
         } catch (error) {
-            this.displayError(
-                `Error converting ${baseCurrency.toUpperCase()} to the other currency.`
+            displayError(
+                `Error converting ${baseCurrency.toUpperCase()} to the other currency.`,
+                'error-message-currency'
             );
             console.error(error);
         }
@@ -53,17 +79,5 @@ export class CurrencyConverter {
                 outputElement.value = this.currencyOutputs[type];
             }
         });
-    }
-
-    getInputValue(element) {
-        return Number(element.value);
-    }
-
-    displayError(message) {
-        const resultElement = document.querySelector('.error-message');
-        const p = document.createElement('p');
-        p.textContent = message;
-        resultElement.innerHTML = '';
-        resultElement.appendChild(p);
     }
 }
