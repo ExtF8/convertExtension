@@ -15,22 +15,56 @@
                 <div class="currency-input-container">
                     <div class="div1-currency"><h2>From EUR</h2></div>
                     <div class="div2-currency">
-                        <input type="number" id="eur_input" data-input-type="eur" />
+                        <input
+                            id="eur_input"
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            data-input-type="eur"
+                            placeholder="0.00"
+                            min="0"
+                            step="0.01"
+                            title="Currency"
+                        />
                     </div>
                     <div class="div3-currency"><h2>to USD</h2></div>
                     <div class="div4-currency">
-                        <input type="number" id="usd_output" data-output-type="usd" readonly />
+                        <input
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            id="usd_output"
+                            data-output-type="usd"
+                            readonly
+                        />
                     </div>
                     <div class="div5-currency"><h2>From USD</h2></div>
                     <div class="div6-currency">
-                        <input type="number" id="usd_input" data-input-type="usd" />
+                        <input
+                            id="usd_input"
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            data-input-type="usd"
+                            placeholder="0.00"
+                            min="0"
+                            step="0.01"
+                            title="Currency"
+                        />
                     </div>
                     <div class="div7-currency"><h2>to EUR</h2></div>
                     <div class="div8-currency">
-                        <input type="number" id="eur_output" data-output-type="eur" readonly />
+                        <input
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            id="eur_output"
+                            data-output-type="eur"
+                            readonly
+                        />
                     </div>
                 </div>
-                <div class="error-message"></div>
+                <div id="error-message-currency" class="error-container"></div>
             </section>
             <!-- Body measures -->
             <section class="measures-container">
@@ -49,30 +83,75 @@
                     <div class="div11-measures"><h2>Leg length / Inseam</h2></div>
                     <div class="div12-measures"><h2>Body height</h2></div>
                     <div class="div13-measures"><h2>CM</h2></div>
-                    <div class="div14-measures"><input type="number" /></div>
-                    <div class="div15-measures"><input type="number" /></div>
-                    <div class="div16-measures"><input type="number" /></div>
-                    <div class="div17-measures"><input type="number" /></div>
-                    <div class="div18-measures"><input type="number" /></div>
-                    <div class="div19-measures"><input type="number" /></div>
-                    <div class="div20-measures"><input type="number" /></div>
-                    <div class="div21-measures"><input type="number" /></div>
-                    <div class="div22-measures"><input type="number" /></div>
-                    <div class="div23-measures"><input type="number" /></div>
-                    <div class="div24-measures"><input type="number" /></div>
+                    <div class="div14-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
+                    <div class="div15-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
+                    <div class="div16-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
+                    <div class="div17-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
+                    <div class="div18-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
+                    <div class="div19-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
+                    <div class="div20-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
+                    <div class="div21-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
+                    <div class="div22-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
+                    <div class="div23-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
+                    <div class="div24-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
                     <div class="div25-measures"><h2>INCH</h2></div>
-                    <div class="div26-measures"><input type="number" /></div>
-                    <div class="div27-measures"><input type="number" /></div>
-                    <div class="div28-measures"><input type="number" /></div>
-                    <div class="div29-measures"><input type="number" /></div>
-                    <div class="div30-measures"><input type="number" /></div>
-                    <div class="div31-measures"><input type="number" /></div>
-                    <div class="div32-measures"><input type="number" /></div>
-                    <div class="div33-measures"><input type="number" /></div>
-                    <div class="div34-measures"><input type="number" /></div>
-                    <div class="div35-measures"><input type="number" /></div>
-                    <div class="div36-measures"><input type="number" /></div>
+                    <div class="div26-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
+                    <div class="div27-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
+                    <div class="div28-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
+                    <div class="div29-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
+                    <div class="div30-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
+                    <div class="div31-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
+                    <div class="div32-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
+                    <div class="div33-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
+                    <div class="div34-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
+                    <div class="div35-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
+                    <div class="div36-measures">
+                        <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" />
+                    </div>
                 </div>
+                <div id="error-message-body" class="error-container"></div>
             </section>
             <!-- Shoe size -->
             <section class="shoe-container">
@@ -87,14 +166,71 @@
                     <div class="div7-shoe shoe"><h2>W/men</h2></div>
                     <div class="div8-shoe shoe"><h2>Men</h2></div>
                     <div class="div9-shoe shoe"><h2>W/men</h2></div>
-                    <div class="div10-shoe shoe"><input type="number" /></div>
-                    <div class="div11-shoe shoe"><input type="number" /></div>
-                    <div class="div12-shoe shoe"><input type="number" /></div>
-                    <div class="div13-shoe shoe"><input type="number" /></div>
-                    <div class="div14-shoe shoe"><input type="number" /></div>
-                    <div class="div15-shoe shoe"><input type="number" /></div>
-                    <div class="div16-shoe shoe"><input type="number" /></div>
+                    <div class="div10-shoe shoe">
+                        <input
+                            id="EUR"
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            data-input-type="eur_shoe_size"
+                        />
+                    </div>
+                    <div class="div11-shoe shoe">
+                        <input
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            id="MONDO"
+                            data-input-type="mondo_shoe_size"
+                        />
+                    </div>
+                    <div class="div12-shoe shoe">
+                        <input
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            id="UK"
+                            data-input-type="uk_shoe_size"
+                        />
+                    </div>
+                    <div class="div13-shoe shoe">
+                        <input
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            id="US_MEN"
+                            data-input-type="us_men_shoe_size"
+                        />
+                    </div>
+                    <div class="div14-shoe shoe">
+                        <input
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            id="US_WOMEN"
+                            data-input-type="us_women_shoe_size"
+                        />
+                    </div>
+                    <div class="div15-shoe shoe">
+                        <input
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            id="AUS_MEN"
+                            data-input-type="aus_men_shoe_size"
+                        />
+                    </div>
+                    <div class="div16-shoe shoe">
+                        <input
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            id="AUS_WOMEN"
+                            data-input-type="aus_women_shoe_size"
+                        />
+                    </div>
                 </div>
+                <div id="error-message-shoe" class="error-container"></div>
             </section>
         </main>
     </body>
