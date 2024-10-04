@@ -93,6 +93,11 @@ label {
     background-color: var(--wheat);
 }
 
+.error-message {
+    color: var(--error);
+    height: 30px;
+}
+
 /* Currency styling parameters */
 .currency-container {
     background-color: var(--brown-sugar);

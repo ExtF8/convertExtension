@@ -14,7 +14,7 @@ async function fetchCurrenciesApi(date, currency) {
 
         return response;
     } catch (error) {
-        console.error('Error fetching schedule data: ', error);
+        console.error('Error fetching currency data: ', error);
         throw error;
     }
 }
