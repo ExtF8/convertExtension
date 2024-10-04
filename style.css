@@ -10,7 +10,7 @@
     --borderDefault: #131313;
     --bodyTextColorWhite: #fafbfc;
     --bodyTextColorGray: #222222;
-    --error: #e82e00;
+    --error: #a80202;
 
     --border_shadow: 0px 0px 10px 2px, inset 0px 0px 10px 2px;
 
@@ -92,10 +92,14 @@ label {
     height: 100vh;
     background-color: var(--wheat);
 }
+.error-container {
+    margin-top: 10px;
+    height: 30px;
+}
 
 .error-message {
     color: var(--error);
-    height: 30px;
+    font-size: 16px;
 }
 
 /* Currency styling parameters */
