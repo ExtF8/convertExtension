@@ -16,9 +16,6 @@ export class CurrencyConverter {
         let value = getInputValue(event.target);
         const baseCurrency = event.target.getAttribute('data-input-type');
 
-        // let value = event.target.value;
-        console.log(value);
-
         // Replace commas with periods (for locales that use commas)
         value = value.replace(',', '.');
 
