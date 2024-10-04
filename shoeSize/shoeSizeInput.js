@@ -64,12 +64,31 @@ export class ShoeSizeConversion {
             // Ensure the value is within the valid range
             const baseSize = event.target.getAttribute('data-input-type');
             if (!this.isValidRange(baseSize, floatValue)) {
-                displayError(
-                    `*${baseSize.toUpperCase()} size must be between ${
-                        this.sizeRanges[baseSize].min
-                    } and ${this.sizeRanges[baseSize].max}.`,
-                    'error-message-shoe'
-                );
+                let trimmedSize;
+                if (baseSize === 'mondo_shoe_size') {
+                    let baseToUpper = baseSize[0].toUpperCase() + baseSize.slice(1);
+                    trimmedSize = baseToUpper.split('_')[0];
+                } else if (baseSize === 'us_men_shoe_size' || 'us_women_shoe_size') {
+                    trimmedSize = baseSize
+                        .split('_')
+                        .map((part, index) => {
+                            return index === 0
+                                ? part.toUpperCase()
+                                : part.charAt(0).toUpperCase() + part.slice(1);
+                        })
+                        .join(' ');
+                } else {
+                    trimmedSize = baseSize.split('_')[0].toUpperCase();
+                }
+
+                trimmedSize = trimmedSize.replace('Shoe Size', '');
+
+                const minSize = this.sizeRanges[baseSize].min; // Ensure this exists
+                const maxSize = this.sizeRanges[baseSize].max; // Ensure this exists
+
+                const errorMessage = `*${trimmedSize} size must be between ${minSize} and ${maxSize}.`;
+
+                displayError(errorMessage, 'error-message-shoe');
                 return;
             }
 
