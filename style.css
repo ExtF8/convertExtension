@@ -35,7 +35,6 @@ input::-webkit-inner-spin-button {
 }
 
 html {
-    /* position: relative; */
     min-height: 100%;
 }
 
@@ -80,12 +79,10 @@ label {
 .main-container {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-evenly; */
     gap: 20px;
     width: 100%;
     height: 100vh;
     background-color: var(--wheat);
-    /* border: 1px solid green; */
 }
 
 /* Currency styling parameters */
@@ -293,7 +290,7 @@ label {
     grid-template-columns: repeat(7, 0.5fr);
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 4px;
-    grid-row-gap: 0px;
+    grid-row-gap: 5px;
     padding-top: 20px;
     /* justify-items: center; */
     align-items: end;
