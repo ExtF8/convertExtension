@@ -10,7 +10,7 @@
         "default_title": "Click to open side panel"
     },
     "side_panel": {
-        "default_path": "sidePanel.html"
+        "default_path": "index.html"
     },
     "permissions": ["storage", "activeTab", "sidePanel"],
     "icons": {
