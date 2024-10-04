@@ -1,69 +1,69 @@
 import { calculateRate } from './calculateRate.js';
 
-(function () {
-    // The structure of the currencyOutputs object
-    const currencyOutputs = {
-        eur: null,
-        usd: null,
-    };
+export class CurrencyConverter {
+    constructor() {
+        // The structure of the currencyOutputs object
+        this.currencyOutputs = {
+            eur: null,
+            usd: null,
+        };
+    }
 
-    const handleInputChanges = async event => {
-        const value = getInputValue(event.target);
+    async handleInputChanges(event) {
+        const value = this.getInputValue(event.target);
         const baseCurrency = event.target.getAttribute('data-input-type');
 
         if (isNaN(value)) {
-            displayError(`*Error converting ${baseCurrency.toUpperCase()} to the other currency.`);
+            this.displayError(
+                `*Error converting ${baseCurrency.toUpperCase()} to the other currency.`
+            );
             console.error('Invalid input type');
             return;
         }
 
-        await processCalculations(baseCurrency, value);
-    };
+        await this.processCalculations(baseCurrency, value);
+    }
 
-    const processCalculations = async (baseCurrency, value) => {
-        await calculateOutputs(baseCurrency, value);
-        await updateOutputs();
-    };
+    async processCalculations(baseCurrency, value) {
+        await this.calculateOutputs(baseCurrency, value);
+        await this.updateOutputs();
+    }
 
-    const calculateOutputs = async (baseCurrency, value) => {
+    async calculateOutputs(baseCurrency, value) {
         try {
             const result = await calculateRate(baseCurrency, value);
 
             if (baseCurrency === 'eur') {
-                currencyOutputs.usd = result;
+                this.currencyOutputs.usd = result;
             } else {
-                currencyOutputs.eur = result;
+                this.currencyOutputs.eur = result;
             }
         } catch (error) {
-            displayError(`Error converting ${baseCurrency.toUpperCase()} to the other currency.`);
+            this.displayError(
+                `Error converting ${baseCurrency.toUpperCase()} to the other currency.`
+            );
             console.error(error);
         }
-    };
+    }
 
-    const updateOutputs = async () => {
-        Object.keys(currencyOutputs).forEach(type => {
+    async updateOutputs() {
+        Object.keys(this.currencyOutputs).forEach(type => {
             const outputElement = document.querySelector(`[data-output-type='${type}']`);
             if (outputElement) {
-                outputElement.value = currencyOutputs[type];
+                outputElement.value = this.currencyOutputs[type];
             }
         });
-    };
+    }
 
-    const getInputValue = element => {
+    getInputValue(element) {
         return Number(element.value);
-    };
+    }
 
-    const displayError = message => {
+    displayError(message) {
         const resultElement = document.querySelector('.error-message');
-
         const p = document.createElement('p');
         p.textContent = message;
         resultElement.innerHTML = '';
-
         resultElement.appendChild(p);
-    };
-
-    document
-        .querySelector('.currency-input-container')
-        .addEventListener('input', handleInputChanges);
-})();
+    }
+}
