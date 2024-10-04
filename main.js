@@ -1,3 +1,4 @@
+import { MeasuresConverter } from './bodyMeasures/measuresInput.js';
 import { CurrencyConverter } from './currency/currencyInput.js';
 import { ShoeSizeConversion } from './shoeSize/shoeSizeInput.js';
 
@@ -14,5 +15,13 @@ const shoeSizeContainer = document.querySelector('.shoe-input-container');
 if (shoeSizeContainer) {
     shoeSizeContainer.addEventListener('change', event => {
         convertShoSizes.handleInputChanges(event);
+    });
+}
+
+const convertBodyMeasures = new MeasuresConverter();
+const bodyMeasuresContainer = document.querySelector('.measures-input-container');
+if (bodyMeasuresContainer) {
+    bodyMeasuresContainer.addEventListener('change', event => {
+        convertBodyMeasures.handleInputChanges(event);
     });
 }
