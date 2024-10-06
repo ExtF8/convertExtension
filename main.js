@@ -14,9 +14,12 @@ if (currencyContainer) {
 // Instance of the MeasuresConverter class for body measurements
 const convertBodyMeasures = new MeasuresConverter();
 const bodyMeasuresContainer = document.querySelector('.measures-input-container');
+const inputs = bodyMeasuresContainer.querySelectorAll('div > input[data-measure-type]');
 if (bodyMeasuresContainer) {
-    bodyMeasuresContainer.addEventListener('change', event => {
-        convertBodyMeasures.handleInputChanges(event);
+    inputs.forEach(input => {
+        input.addEventListener('input', event => {
+            convertBodyMeasures.handleInputChanges(event);
+        });
     });
 }
 
