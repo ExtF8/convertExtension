@@ -14,8 +14,6 @@
     },
     "permissions": ["storage", "activeTab", "sidePanel"],
     "icons": {
-        "16": "./icons/S_skrastin_logo.png",
-        "48": "./icons/S_skrastin_logo.png",
         "128": "./icons/S_skrastin_logo.png"
     }
 }
