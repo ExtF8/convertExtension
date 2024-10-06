@@ -17,7 +17,7 @@ const bodyMeasuresContainer = document.querySelector('.measures-input-container'
 const inputs = bodyMeasuresContainer.querySelectorAll('div > input[data-measure-type]');
 if (bodyMeasuresContainer) {
     inputs.forEach(input => {
-        input.addEventListener('input', event => {
+        input.addEventListener('change', event => {
             convertBodyMeasures.handleInputChanges(event);
         });
     });
