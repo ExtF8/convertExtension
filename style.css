@@ -14,8 +14,10 @@
 
     --border_shadow: 0px 0px 10px 2px, inset 0px 0px 10px 2px;
 
-    --headerFontSize: clamp(3rem, 2vw, 4rem);
+    --headerFontSize: clamp(1rem, 2vw, 1.2rem);
     --bodyFontSize: 1rem;
+    /* 13px - 16px */
+    --text-size: clamp(0.8125rem, 1.6vw, 1rem);
     --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
 }
 
@@ -43,13 +45,7 @@ input[type='text'] {
 }
 
 html {
-    min-height: 100%;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    height: 100%;
 }
 
 header {
@@ -57,51 +53,40 @@ header {
 }
 
 h1 {
-    font-size: 22px;
+    font-size: var(--headerFontSize);
     font-weight: 600;
-
 }
 
 h2 {
-    font-size: 18px;
-    margin: 10px 0;
+    font-size: var(--text-size);
+    /* margin: 10px 0; */
     font-weight: 500;
 }
 
 p {
-    font-size: 20px;
+    font-size: var(--text-size);
     padding: 2px;
 }
 
 input {
-    width: 80px;
+    width: 20vw;
     height: 24px;
     text-align: center;
     border-radius: 6px;
     border: none;
+    font-size: var(--bodyFontSize);
+    margin-bottom: 3px;
 }
 
-input,
-label {
-    font-size: 18px;
-}
-
-.main-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    height: 100vh;
+body {
     background-color: var(--wheat);
 }
 .error-container {
-    margin-top: 10px;
-    height: 30px;
+    height: 20px;
 }
 
 .error-message {
     color: var(--error);
-    font-size: 14px;
 }
 
 /* Currency styling parameters */
@@ -118,11 +103,8 @@ label {
     /* grid-template-columns: repeat(4, 1fr); */
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 5px;
-    grid-row-gap: 5px;
-    padding-top: 10px;
     justify-items: center;
     justify-content: center;
-    align-content: center;
     align-items: center;
 }
 
@@ -165,12 +147,11 @@ label {
 .measures-input-container {
     display: grid;
     /* grid-template-columns: repeat(2, 0.5fr); */
-    grid-template-rows: repeat(12, 1fr);
+    /* grid-template-rows: repeat(12, 1fr); */
     grid-column-gap: 5px;
-    grid-row-gap: 5px;
-    padding-top: 10px;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    justify-items: center;
 }
 
 .div1-measures {
@@ -305,16 +286,12 @@ label {
 }
 .shoe-input-container {
     display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: repeat(7, 0.5fr);
-    grid-template-rows: repeat(3, 1fr);
+    /* grid-template-columns: repeat(7, 0.5fr);
+    grid-template-rows: repeat(3, 1fr); */
     grid-column-gap: 4px;
     grid-row-gap: 5px;
-    padding-top: 10px;
-    /* justify-items: center; */
-    align-items: end;
     justify-content: space-evenly;
-    align-content: center;
+    align-items: end;
 }
 
 .div1-shoe {
@@ -374,10 +351,6 @@ label {
 
 .shoe-input-container > .shoe > input {
     width: 100%;
-}
-
-.shoe > h2 {
-    margin: 0;
 }
 
 .underline {
