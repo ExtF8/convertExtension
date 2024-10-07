@@ -35,8 +35,10 @@ if (shoeSizeContainer) {
 // Reset button for clearing input values
 const resetButton = document.getElementById('reset');
 const inputs = document.querySelectorAll('input');
+const textArea = document.getElementById('textField');
 resetButton.addEventListener('click', () => {
     inputs.forEach(input => {
         input.value = '';
     });
+    textArea.value = '';
 });
