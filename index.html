@@ -10,64 +10,46 @@
     <body>
         <main class="main-container">
             <!-- Currency -->
-            <section class="currency-container">
+            <section class="currency-container container">
                 <h1>Currency</h1>
                 <div class="currency-input-container">
-                    <div class="div1-currency"><h2>From EUR</h2></div>
-                    <div class="div2-currency">
-                        <input
-                            id="eur_input"
-                            type="text"
-                            inputmode="decimal"
-                            pattern="[0-9]*[.,]?[0-9]*"
-                            data-input-type="eur"
-                            placeholder="0.00"
-                            min="0"
-                            step="0.01"
-                            title="Currency"
-                        />
+                    <div class="div1-currency">
+                        <h2>EUR</h2>
+                        <div class="div2-currency">
+                            <input
+                                id="eur_input"
+                                type="text"
+                                inputmode="decimal"
+                                pattern="[0-9]*[.,]?[0-9]*"
+                                data-input-type="eur"
+                                placeholder="0.00"
+                                min="0"
+                                step="0.01"
+                                title="Currency"
+                            />
+                        </div>
                     </div>
-                    <div class="div3-currency"><h2>to USD</h2></div>
-                    <div class="div4-currency">
-                        <input
-                            type="text"
-                            inputmode="decimal"
-                            pattern="[0-9]*[.,]?[0-9]*"
-                            id="usd_output"
-                            data-output-type="usd"
-                            readonly
-                        />
-                    </div>
-                    <div class="div5-currency"><h2>From USD</h2></div>
-                    <div class="div6-currency">
-                        <input
-                            id="usd_input"
-                            type="text"
-                            inputmode="decimal"
-                            pattern="[0-9]*[.,]?[0-9]*"
-                            data-input-type="usd"
-                            placeholder="0.00"
-                            min="0"
-                            step="0.01"
-                            title="Currency"
-                        />
-                    </div>
-                    <div class="div7-currency"><h2>to EUR</h2></div>
-                    <div class="div8-currency">
-                        <input
-                            type="text"
-                            inputmode="decimal"
-                            pattern="[0-9]*[.,]?[0-9]*"
-                            id="eur_output"
-                            data-output-type="eur"
-                            readonly
-                        />
+                    <div class="div3-currency">
+                        <h2>USD</h2>
+                        <div class="div4-currency">
+                            <input
+                                type="text"
+                                inputmode="decimal"
+                                pattern="[0-9]*[.,]?[0-9]*"
+                                id="usd_input"
+                                data-input-type="usd"
+                                placeholder="0.00"
+                                min="0"
+                                step="0.01"
+                                title="Currency"
+                            />
+                        </div>
                     </div>
                 </div>
                 <div id="error-message-currency" class="error-container"></div>
             </section>
             <!-- Body measures -->
-            <section class="measures-container">
+            <section class="measures-container container">
                 <h1>Body Measures</h1>
                 <div class="measures-input-container">
                     <div class="div1-measures"><h2></h2></div>
@@ -289,7 +271,7 @@
                 <div id="error-message-body" class="error-container"></div>
             </section>
             <!-- Shoe size -->
-            <section class="shoe-container">
+            <section class="shoe-container container">
                 <h1>Shoe size conversion</h1>
                 <div class="shoe-input-container">
                     <div class="div1-shoe shoe"><h2>EUR</h2></div>

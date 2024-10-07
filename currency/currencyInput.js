@@ -48,7 +48,7 @@ export class CurrencyConverter {
 
     async processCalculations(baseCurrency, value) {
         await this.calculateOutputs(baseCurrency, value);
-        await this.updateOutputs();
+        this.updateOutputs(baseCurrency);
     }
 
     async calculateOutputs(baseCurrency, value) {
@@ -69,12 +69,20 @@ export class CurrencyConverter {
         }
     }
 
-    async updateOutputs() {
-        Object.keys(this.currencyOutputs).forEach(type => {
-            const outputElement = document.querySelector(`[data-output-type='${type}']`);
-            if (outputElement) {
-                outputElement.value = this.currencyOutputs[type];
+    updateOutputs(baseCurrency) {
+        // Update the input field of the opposite currency
+        if (baseCurrency === 'eur') {
+            // Update USD input field
+            const usdInput = document.querySelector(`[data-input-type='usd']`);
+            if (usdInput) {
+                usdInput.value = this.currencyOutputs.usd;
             }
-        });
+        } else if (baseCurrency === 'usd') {
+            // Update EUR input field
+            const eurInput = document.querySelector(`[data-input-type='eur']`);
+            if (eurInput) {
+                eurInput.value = this.currencyOutputs.eur;
+            }
+        }
     }
 }
