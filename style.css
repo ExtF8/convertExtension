@@ -89,6 +89,21 @@ body {
     color: var(--error);
 }
 
+.reset-container {
+    margin: 4px;
+    padding: 4px;
+}
+
+#reset {
+    border: none;
+    height: 28px;
+    background-color: var(--chestnut);
+    font-size: var(--bodyFontSize);
+    border-radius: 10px;
+    color: var(--bodyTextColorWhite);
+    padding: 4px;
+}
+
 /* Currency styling parameters */
 .currency-container {
     background-color: var(--brown-sugar);
