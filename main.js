@@ -14,9 +14,9 @@ if (currencyContainer) {
 // Instance of the MeasuresConverter class for body measurements
 const convertBodyMeasures = new MeasuresConverter();
 const bodyMeasuresContainer = document.querySelector('.measures-input-container');
-const inputs = bodyMeasuresContainer.querySelectorAll('div > input[data-measure-type]');
+const measureInputs = bodyMeasuresContainer.querySelectorAll('div > input[data-measure-type]');
 if (bodyMeasuresContainer) {
-    inputs.forEach(input => {
+    measureInputs.forEach(input => {
         input.addEventListener('change', event => {
             convertBodyMeasures.handleInputChanges(event);
         });
@@ -31,3 +31,14 @@ if (shoeSizeContainer) {
         convertShoSizes.handleInputChanges(event);
     });
 }
+
+// Reset button for clearing input values
+const resetButton = document.getElementById('reset');
+const inputs = document.querySelectorAll('input');
+const textArea = document.getElementById('textField');
+resetButton.addEventListener('click', () => {
+    inputs.forEach(input => {
+        input.value = '';
+    });
+    textArea.value = '';
+});
