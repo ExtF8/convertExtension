@@ -2,6 +2,14 @@ import { MeasuresConverter } from './bodyMeasures/measuresInput.js';
 import { CurrencyConverter } from './currency/currencyInput.js';
 import { ShoeSizeConversion } from './shoeSize/shoeSizeInput.js';
 
+function debounce(func, delay) {
+    let timeout;
+    return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), delay);
+    };
+}
+
 // Instance of the CurrencyConverter class
 const convertCurrencies = new CurrencyConverter();
 const currencyContainer = document.querySelector('.currency-input-container');
@@ -17,9 +25,14 @@ const bodyMeasuresContainer = document.querySelector('.measures-input-container'
 const measureInputs = bodyMeasuresContainer.querySelectorAll('div > input[data-measure-type]');
 if (bodyMeasuresContainer) {
     measureInputs.forEach(input => {
-        input.addEventListener('change', event => {
-            convertBodyMeasures.handleInputChanges(event);
-        });
+        // Apply debounce to input listeners
+        input.addEventListener(
+            'input',
+            debounce(event => convertBodyMeasures.handleInputChanges(event), 1000)
+        );
+        // input.addEventListener('change', event => {
+        //     convertBodyMeasures.handleInputChanges(event);
+        // });
     });
 }
 
