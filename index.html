@@ -68,21 +68,13 @@
             <section class="measures-container container">
                 <h1>Body Measures</h1>
                 <div class="measures-input-container">
-                    <div class="div1-measures"><h2></h2></div>
-                    <div class="div2-measures"><h2>Length</h2></div>
-                    <div class="div3-measures"><h2>Shoulder width</h2></div>
-                    <div class="div4-measures"><h2>Waist size</h2></div>
-                    <div class="div5-measures"><h2>Sleeve length</h2></div>
-                    <div class="div6-measures"><h2>Inseam</h2></div>
-                    <div class="div7-measures"><h2>Head circ.</h2></div>
-                    <div class="div8-measures"><h2>Neck size</h2></div>
-                    <div class="div9-measures"><h2>Bust girth</h2></div>
-                    <div class="div10-measures"><h2>Under-bust</h2></div>
-                    <div class="div11-measures"><h2>Hip</h2></div>
-                    <div class="div12-measures"><h2>Hand circ.</h2></div>
-                    <!-- CM Inputs -->
-                    <div class="div13-measures"><h2>CM</h2></div>
-                    <div class="div14-measures">
+                    <div class="measure">
+                        <h2></h2>
+                        <h2>CM</h2>
+                        <h2>INCH</h2>
+                    </div>
+                    <div class="draggable measure" draggable="true">
+                        <h2>Length</h2>
                         <input
                             type="text"
                             inputmode="decimal"
@@ -90,8 +82,16 @@
                             data-input-type="length"
                             data-measure-type="cm"
                         />
+                        <input
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            data-input-type="length"
+                            data-measure-type="inch"
+                        />
                     </div>
-                    <div class="div15-measures">
+                    <div class="draggable measure" draggable="true">
+                        <h2>Shoulder width</h2>
                         <input
                             type="text"
                             inputmode="decimal"
@@ -99,8 +99,16 @@
                             data-input-type="shoulder_width"
                             data-measure-type="cm"
                         />
+                        <input
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            data-input-type="shoulder_width"
+                            data-measure-type="inch"
+                        />
                     </div>
-                    <div class="div16-measures">
+                    <div class="draggable measure" draggable="true">
+                        <h2>Waist size</h2>
                         <input
                             type="text"
                             inputmode="decimal"
@@ -108,8 +116,16 @@
                             data-input-type="waist_size"
                             data-measure-type="cm"
                         />
+                        <input
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            data-input-type="waist_size"
+                            data-measure-type="inch"
+                        />
                     </div>
-                    <div class="div17-measures">
+                    <div class="draggable measure" draggable="true">
+                        <h2>Sleeve length</h2>
                         <input
                             type="text"
                             inputmode="decimal"
@@ -117,8 +133,16 @@
                             data-input-type="sleeve_length"
                             data-measure-type="cm"
                         />
+                        <input
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            data-input-type="sleeve_length"
+                            data-measure-type="inch"
+                        />
                     </div>
-                    <div class="div18-measures">
+                    <div class="draggable measure" draggable="true">
+                        <h2>Inseam</h2>
                         <input
                             type="text"
                             inputmode="decimal"
@@ -126,8 +150,16 @@
                             data-input-type="inseam"
                             data-measure-type="cm"
                         />
+                        <input
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            data-input-type="inseam"
+                            data-measure-type="inch"
+                        />
                     </div>
-                    <div class="div19-measures">
+                    <div class="draggable measure" draggable="true">
+                        <h2>Head circ.</h2>
                         <input
                             type="text"
                             inputmode="decimal"
@@ -135,8 +167,16 @@
                             data-input-type="head_circ"
                             data-measure-type="cm"
                         />
+                        <input
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            data-input-type="head_circ"
+                            data-measure-type="inch"
+                        />
                     </div>
-                    <div class="div20-measures">
+                    <div class="draggable measure" draggable="true">
+                        <h2>Neck size</h2>
                         <input
                             type="text"
                             inputmode="decimal"
@@ -144,8 +184,16 @@
                             data-input-type="neck_size"
                             data-measure-type="cm"
                         />
+                        <input
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            data-input-type="neck_size"
+                            data-measure-type="inch"
+                        />
                     </div>
-                    <div class="div21-measures">
+                    <div class="draggable measure" draggable="true">
+                        <h2>Bust girth</h2>
                         <input
                             type="text"
                             inputmode="decimal"
@@ -153,8 +201,16 @@
                             data-input-type="bust_girth"
                             data-measure-type="cm"
                         />
+                        <input
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            data-input-type="bust_girth"
+                            data-measure-type="inch"
+                        />
                     </div>
-                    <div class="div22-measures">
+                    <div class="draggable measure" draggable="true">
+                        <h2>Under-bust</h2>
                         <input
                             type="text"
                             inputmode="decimal"
@@ -162,8 +218,16 @@
                             data-input-type="under_bust"
                             data-measure-type="cm"
                         />
+                        <input
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            data-input-type="under_bust"
+                            data-measure-type="inch"
+                        />
                     </div>
-                    <div class="div23-measures">
+                    <div class="draggable measure" draggable="true">
+                        <h2>Hip</h2>
                         <input
                             type="text"
                             inputmode="decimal"
@@ -171,8 +235,16 @@
                             data-input-type="hip"
                             data-measure-type="cm"
                         />
+                        <input
+                            type="text"
+                            inputmode="decimal"
+                            pattern="[0-9]*[.,]?[0-9]*"
+                            data-input-type="hip"
+                            data-measure-type="inch"
+                        />
                     </div>
-                    <div class="div24-measures">
+                    <div class="draggable measure" draggable="true">
+                        <h2>Hand circ.</h2>
                         <input
                             type="text"
                             inputmode="decimal"
@@ -180,101 +252,6 @@
                             data-input-type="hand_circ"
                             data-measure-type="cm"
                         />
-                    </div>
-
-                    <!-- INCH Inputs -->
-                    <div class="div25-measures"><h2>INCH</h2></div>
-                    <div class="div26-measures">
-                        <input
-                            type="text"
-                            inputmode="decimal"
-                            pattern="[0-9]*[.,]?[0-9]*"
-                            data-input-type="length"
-                            data-measure-type="inch"
-                        />
-                    </div>
-                    <div class="div27-measures">
-                        <input
-                            type="text"
-                            inputmode="decimal"
-                            pattern="[0-9]*[.,]?[0-9]*"
-                            data-input-type="shoulder_width"
-                            data-measure-type="inch"
-                        />
-                    </div>
-                    <div class="div28-measures">
-                        <input
-                            type="text"
-                            inputmode="decimal"
-                            pattern="[0-9]*[.,]?[0-9]*"
-                            data-input-type="waist_size"
-                            data-measure-type="inch"
-                        />
-                    </div>
-                    <div class="div29-measures">
-                        <input
-                            type="text"
-                            inputmode="decimal"
-                            pattern="[0-9]*[.,]?[0-9]*"
-                            data-input-type="sleeve_length"
-                            data-measure-type="inch"
-                        />
-                    </div>
-                    <div class="div30-measures">
-                        <input
-                            type="text"
-                            inputmode="decimal"
-                            pattern="[0-9]*[.,]?[0-9]*"
-                            data-input-type="inseam"
-                            data-measure-type="inch"
-                        />
-                    </div>
-                    <div class="div31-measures">
-                        <input
-                            type="text"
-                            inputmode="decimal"
-                            pattern="[0-9]*[.,]?[0-9]*"
-                            data-input-type="head_circ"
-                            data-measure-type="inch"
-                        />
-                    </div>
-                    <div class="div32-measures">
-                        <input
-                            type="text"
-                            inputmode="decimal"
-                            pattern="[0-9]*[.,]?[0-9]*"
-                            data-input-type="neck_size"
-                            data-measure-type="inch"
-                        />
-                    </div>
-                    <div class="div33-measures">
-                        <input
-                            type="text"
-                            inputmode="decimal"
-                            pattern="[0-9]*[.,]?[0-9]*"
-                            data-input-type="bust_girth"
-                            data-measure-type="inch"
-                        />
-                    </div>
-                    <div class="div34-measures">
-                        <input
-                            type="text"
-                            inputmode="decimal"
-                            pattern="[0-9]*[.,]?[0-9]*"
-                            data-input-type="under_bust"
-                            data-measure-type="inch"
-                        />
-                    </div>
-                    <div class="div35-measures">
-                        <input
-                            type="text"
-                            inputmode="decimal"
-                            pattern="[0-9]*[.,]?[0-9]*"
-                            data-input-type="hip"
-                            data-measure-type="inch"
-                        />
-                    </div>
-                    <div class="div36-measures">
                         <input
                             type="text"
                             inputmode="decimal"
@@ -367,7 +344,12 @@
             </section>
             <section class="text-filed-container container">
                 <h1>Notes</h1>
-                <textarea type="textfield" name="Notes" id="textField" placeholder="Something important..."></textarea>
+                <textarea
+                    type="textfield"
+                    name="Notes"
+                    id="textField"
+                    placeholder="Something important..."
+                ></textarea>
             </section>
             <div class="reset-container">
                 <button id="reset" type="reset">Reset All Values</button>
