@@ -25,19 +25,17 @@ async function getCurrenciesData(date, currency) {
     return responseData;
 }
 
-export async function calculateRate(currency, value) {
+export async function calculateRate(fromCurrency, toCurrency, value) {
     let currentDate = getCurrentDate();
-    const responseData = await getCurrenciesData(currentDate, currency);
+    const responseData = await getCurrenciesData(currentDate, fromCurrency);
 
     let conversionRate;
 
-    if (currency === 'eur') {
-        conversionRate = responseData.eur.usd;
-    } else if (currency === 'usd') {
-        conversionRate = responseData.usd.eur;
-    } else {
-        throw new Error('Unsupported currency');
+    if (!responseData[fromCurrency] || !responseData[fromCurrency][toCurrency]) {
+        throw new Error(`Conversion rate not available from ${fromCurrency} to ${toCurrency}`);
     }
+
+    conversionRate = responseData[fromCurrency][toCurrency];
 
     const result = value * conversionRate;
 
@@ -47,9 +45,3 @@ export async function calculateRate(currency, value) {
 function getCurrentDate() {
     return new Date().toJSON().slice(0, 10);
 }
-
-// let resultEurToUsd = await calculateRate('eur', 1);
-// let resultUsdToEur = await calculateRate('usd', 1);
-
-// console.log('resultEurToUsd: ', resultEurToUsd);
-// console.log('resultUsdToEur: ', resultUsdToEur);
