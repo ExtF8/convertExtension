@@ -7,6 +7,7 @@ export class CurrencyConverter {
         this.currencyOutputs = {
             eur: null,
             usd: null,
+            gbp: null,
         };
     }
 
@@ -53,12 +54,21 @@ export class CurrencyConverter {
 
     async calculateOutputs(baseCurrency, value) {
         try {
-            const result = await calculateRate(baseCurrency, value);
-
-            if (baseCurrency === 'eur') {
-                this.currencyOutputs.usd = result;
-            } else {
-                this.currencyOutputs.eur = result;
+            switch (baseCurrency) {
+                case 'eur':
+                    this.currencyOutputs.usd = await calculateRate('eur', 'usd', value);
+                    this.currencyOutputs.gbp = await calculateRate('eur', 'gbp', value);
+                    break;
+                case 'usd':
+                    this.currencyOutputs.eur = await calculateRate('usd', 'eur', value);
+                    this.currencyOutputs.gbp = await calculateRate('usd', 'gbp', value);
+                    break;
+                case 'gbp':
+                    this.currencyOutputs.eur = await calculateRate('gbp', 'eur', value);
+                    this.currencyOutputs.usd = await calculateRate('gbp', 'usd', value);
+                    break;
+                default:
+                    break;
             }
         } catch (error) {
             displayError(
@@ -70,19 +80,28 @@ export class CurrencyConverter {
     }
 
     updateOutputs(baseCurrency) {
-        // Update the input field of the opposite currency
-        if (baseCurrency === 'eur') {
-            // Update USD input field
-            const usdInput = document.querySelector(`[data-input-type='usd']`);
-            if (usdInput) {
+        console.log('Update Out Puts')
+        const usdInput = document.querySelector(`[data-input-type='usd']`);
+        const eurInput = document.querySelector(`[data-input-type='eur']`);
+        const gbpInput = document.querySelector(`[data-input-type='gbp']`);
+
+        switch (baseCurrency) {
+            case 'eur':
                 usdInput.value = this.currencyOutputs.usd;
-            }
-        } else if (baseCurrency === 'usd') {
-            // Update EUR input field
-            const eurInput = document.querySelector(`[data-input-type='eur']`);
-            if (eurInput) {
+                gbpInput.value = this.currencyOutputs.gbp;
+
+                break;
+            case 'usd':
                 eurInput.value = this.currencyOutputs.eur;
-            }
+                gbpInput.value = this.currencyOutputs.gbp;
+                break;
+            case 'gbp':
+                usdInput.value = this.currencyOutputs.usd;
+
+                eurInput.value = this.currencyOutputs.eur;
+                break;
+            default:
+                break;
         }
     }
 }
