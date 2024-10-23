@@ -6,6 +6,7 @@
         <title>Converter</title>
         <link rel="stylesheet" href="style.css" />
         <script type="module" src="main.js" defer></script>
+        <script type="module" src="./bodyMeasures//dragAndDrop.js" defer></script>
     </head>
     <body>
         <main class="main-container">
@@ -68,12 +69,12 @@
             <section class="measures-container container">
                 <h1>Body Measures</h1>
                 <div class="measures-input-container">
-                    <div class="measure">
+                    <div class="measure-item">
                         <h2></h2>
                         <h2>CM</h2>
                         <h2>INCH</h2>
                     </div>
-                    <div class="draggable measure" draggable="true">
+                    <div class="draggable measure-item" draggable="true"  data-type="length">
                         <h2>Length</h2>
                         <input
                             type="text"
@@ -90,7 +91,7 @@
                             data-measure-type="inch"
                         />
                     </div>
-                    <div class="draggable measure" draggable="true">
+                    <div class="draggable measure-item" draggable="true"  data-type="shoulder_width">
                         <h2>Shoulder width</h2>
                         <input
                             type="text"
@@ -107,7 +108,7 @@
                             data-measure-type="inch"
                         />
                     </div>
-                    <div class="draggable measure" draggable="true">
+                    <div class="draggable measure-item" draggable="true" data-type="waist_size">
                         <h2>Waist size</h2>
                         <input
                             type="text"
@@ -124,7 +125,7 @@
                             data-measure-type="inch"
                         />
                     </div>
-                    <div class="draggable measure" draggable="true">
+                    <div class="draggable measure-item" draggable="true" data-type="sleeve_length">
                         <h2>Sleeve length</h2>
                         <input
                             type="text"
@@ -141,7 +142,7 @@
                             data-measure-type="inch"
                         />
                     </div>
-                    <div class="draggable measure" draggable="true">
+                    <div class="draggable measure-item" draggable="true" data-type="inseam">
                         <h2>Inseam</h2>
                         <input
                             type="text"
@@ -158,7 +159,7 @@
                             data-measure-type="inch"
                         />
                     </div>
-                    <div class="draggable measure" draggable="true">
+                    <div class="draggable measure-item" draggable="true" data-type="head_circ">
                         <h2>Head circ.</h2>
                         <input
                             type="text"
@@ -175,7 +176,7 @@
                             data-measure-type="inch"
                         />
                     </div>
-                    <div class="draggable measure" draggable="true">
+                    <div class="draggable measure-item" draggable="true" data-type="neck_size">
                         <h2>Neck size</h2>
                         <input
                             type="text"
@@ -192,7 +193,7 @@
                             data-measure-type="inch"
                         />
                     </div>
-                    <div class="draggable measure" draggable="true">
+                    <div class="draggable measure-item" draggable="true" data-type="bust_girth">
                         <h2>Bust girth</h2>
                         <input
                             type="text"
@@ -209,7 +210,7 @@
                             data-measure-type="inch"
                         />
                     </div>
-                    <div class="draggable measure" draggable="true">
+                    <div class="draggable measure-item" draggable="true" data-type="under_bust">
                         <h2>Under-bust</h2>
                         <input
                             type="text"
@@ -226,7 +227,7 @@
                             data-measure-type="inch"
                         />
                     </div>
-                    <div class="draggable measure" draggable="true">
+                    <div class="draggable measure-item" draggable="true" data-type="hip">
                         <h2>Hip</h2>
                         <input
                             type="text"
@@ -243,7 +244,7 @@
                             data-measure-type="inch"
                         />
                     </div>
-                    <div class="draggable measure" draggable="true">
+                    <div class="draggable measure-item" draggable="true" data-type="hand_circ">
                         <h2>Hand circ.</h2>
                         <input
                             type="text"

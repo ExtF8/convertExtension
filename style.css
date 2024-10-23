@@ -109,6 +109,17 @@ body {
     padding: 4px;
 }
 
+.draggable {
+    cursor: move;
+    text-align: center;
+    background: none;
+}
+
+.draggable.dragging {
+    opacity: 0.5;
+    background-color: #ddd;
+}
+
 /* Currency styling parameters */
 .currency-container {
     background-color: var(--brown-sugar);
@@ -125,7 +136,7 @@ body {
     background-color: var(--harvest-gold);
 }
 
-.measure {
+.measure-item {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -133,8 +144,8 @@ body {
     gap: 5px;
 }
 
-.measure > h2,
-.measure > input {
+.measure-item > h2,
+.measure-item > input {
     width: 33%;
 }
 
