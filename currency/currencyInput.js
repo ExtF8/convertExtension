@@ -1,6 +1,10 @@
 import { getInputValue, displayError } from '../utils/utils.js';
 import { calculateRate } from './calculateRate.js';
 
+/**
+ * Represets a currency converter that handles currency input changer and conversion calculations.
+ * Initializes the `currencyOutputs` object for storing conversion results
+ */
 export class CurrencyConverter {
     constructor() {
         // The structure of the currencyOutputs object
@@ -11,9 +15,17 @@ export class CurrencyConverter {
         };
     }
 
+    /**
+     * Handles input changes for currency conversion.
+     * Clears any existing error messages and validates the input format.
+     * If valid, proceeds with converting the input value to other currencies.
+     * @param {Event} event - The input event triggered when the user changes the value.
+     * @async
+     */
     async handleInputChanges(event) {
         // Clear the error message
         displayError('', 'error-message-currency');
+
         let value = getInputValue(event.target);
         const baseCurrency = event.target.getAttribute('data-input-type');
 
@@ -44,6 +56,7 @@ export class CurrencyConverter {
             return;
         }
 
+        // Process calculations based on baseCurrency and input value
         await this.processCalculations(baseCurrency, floatValue);
     }
 
@@ -80,7 +93,6 @@ export class CurrencyConverter {
     }
 
     updateOutputs(baseCurrency) {
-        console.log('Update Out Puts')
         const usdInput = document.querySelector(`[data-input-type='usd']`);
         const eurInput = document.querySelector(`[data-input-type='eur']`);
         const gbpInput = document.querySelector(`[data-input-type='gbp']`);
