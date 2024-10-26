@@ -14,8 +14,8 @@
 
     --border_shadow: 0px 0px 10px 2px, inset 0px 0px 10px 2px;
 
-    --headerFontSize: clamp(1rem, 2vw, 1.2rem);
-    --bodyFontSize: clamp(0.9rem, 2vw, 1.2rem);
+    --headerFontSize: clamp(0.9rem, 1.9vw, 1rem);
+    --bodyFontSize: clamp(0.7rem, 1.7vw, 0.9rem);
     /* 13px - 16px */
     --text-size: clamp(0.8125rem, 1.6vw, 1rem);
     --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
@@ -75,7 +75,7 @@ input {
     border-radius: 6px;
     border: none;
     font-size: var(--bodyFontSize);
-    margin-bottom: 3px;
+    /* margin: 2px; */
 }
 
 body {
@@ -109,17 +109,6 @@ body {
     padding: 4px;
 }
 
-.draggable {
-    cursor: move;
-    text-align: center;
-    background: none;
-}
-
-.draggable.dragging {
-    opacity: 0.5;
-    background-color: #ddd;
-}
-
 /* Currency styling parameters */
 .currency-container {
     background-color: var(--brown-sugar);
@@ -131,22 +120,36 @@ body {
     justify-content: center;
 }
 
+.currency-input-container > div > h2 {
+    gap: 5px;
+    padding: 2px;
+}
+
 /* Body measures */
 .measures-container {
     background-color: var(--harvest-gold);
 }
 
-.measure-item {
+.measure-item,
+.measurement-label-container {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
     gap: 5px;
+    padding: 2px;
 }
 
 .measure-item > h2,
-.measure-item > input {
+.measure-item > input,
+.measurement-label {
     width: 33%;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .measures-input-container {
@@ -154,6 +157,15 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.draggable {
+    cursor: grab;
+    background: none;
+}
+
+.draggable.dragging {
+    opacity: 0.3;
 }
 
 /* Shoe size conversion */

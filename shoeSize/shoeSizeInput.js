@@ -1,7 +1,14 @@
 import { getInputValue, displayError } from '../utils/utils.js';
 import { findShoeSize } from './findShoSize.js';
 
+/**
+ * Class representing a she size conversion utility.
+ */
 export class ShoeSizeConversion {
+    /**
+     * Initializes the ShoeSizeConversion instance with default values for shoe sizes,
+     * valid size ranges, and valid increments for different shoe size types.
+     */
     constructor() {
         this.shoeSizes = {
             eur_shoe_size: null,
@@ -36,11 +43,18 @@ export class ShoeSizeConversion {
         };
     }
 
+    /**
+     * Handles input changes for shoe size fields.
+     * Validates the input format, checks if the value is within the valid range,
+     * rounds to the nearest valid increment, and triggers size conversion.
+     * @param {Event} event - The input change event.
+     */
     handleInputChanges(event) {
         // Clear the error message
         displayError('', 'error-message-shoe');
 
         let value = getInputValue(event.target);
+
         // Replace commas with periods (for locales that use commas)
         value = value.replace(',', '.');
 
@@ -100,29 +114,53 @@ export class ShoeSizeConversion {
         }
     }
 
+    /**
+     * Checks if a given shoe size value is within the valid range.
+     * @param {string} baseSize - The type of shoe size.
+     * @param {number} value - The shoe size value to check.
+     * @returns {boolean} - True if the value is within range, otherwise false.
+     */
     isValidRange(baseSize, value) {
         const range = this.sizeRanges[baseSize];
         if (!range) return true; // If no specific range is defined, assume it's valid
         return value >= range.min && value <= range.max;
     }
 
+    /**
+     * Rounds a shoe size value to the nearest valid increment.
+     * @param {string} baseSize - The type of shoe size.
+     * @param {number} value - The shoe size value to round.
+     * @returns {number} - The rounded shoe size value.
+     */
     roundToNearestValidIncrement(baseSize, value) {
         const increment = this.validIncrements[baseSize] || 1; // Default to 1 if no specific increment is set
         return Math.round(value / increment) * increment;
     }
 
+    /**
+     * Process the shoe size conversion based on the base size and value.
+     * @param {string} baseSize - The type of shoe size being converted.
+     * @param {number} value - The shoe size value to convert.
+     */
     processSizeConversion(baseSize, value) {
         const size = findShoeSize(baseSize, value);
         this.updateShoeSizes(size);
         this.updateOutputs();
     }
 
+    /**
+     * Updates the internal shoe size storage with the converted sizes.
+     * @param {Object} size - An object containing the converted shoe sizes.
+     */
     updateShoeSizes(size) {
         Object.keys(this.shoeSizes).forEach(type => {
             this.shoeSizes[type] = size[type];
         });
     }
 
+    /**
+     * Updates the output fields in the DOM with the current shoe sizes.
+     */
     updateOutputs() {
         Object.keys(this.shoeSizes).forEach(type => {
             const outputElement = document.querySelector(`[data-input-type='${type}']`);

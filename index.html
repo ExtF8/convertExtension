@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Converter</title>
         <link rel="stylesheet" href="style.css" />
-        <script type="module" src="main.js" defer></script>
-        <script type="module" src="./bodyMeasures//dragAndDrop.js" defer></script>
+        <script type="module" src="./main.js" defer></script>
+        <script type="module" src="./utils/dragAndDrop.js" defer></script>
     </head>
     <body>
         <main class="main-container">
@@ -15,7 +15,7 @@
                 <h1>Currency</h1>
                 <div class="currency-input-container">
                     <div class="div1-currency">
-                        <h2>EUR</h2>
+                        <h2 class="flex-center">EUR</h2>
                         <div class="div2-currency">
                             <input
                                 id="eur_input"
@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <div class="div3-currency">
-                        <h2>USD</h2>
+                        <h2 class="flex-center">USD</h2>
                         <div class="div4-currency">
                             <input
                                 type="text"
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <div class="div3-currency">
-                        <h2>GBP</h2>
+                        <h2 class="flex-center">GBP</h2>
                         <div class="div4-currency">
                             <input
                                 type="text"
@@ -68,13 +68,13 @@
             <!-- Body measures -->
             <section class="measures-container container">
                 <h1>Body Measures</h1>
+                <div class="measurement-label-container">
+                    <div class="measurement-label flex-center"></div>
+                    <h2 class="measurement-label flex-center">CM</h2>
+                    <h2 class="measurement-label flex-center">INCH</h2>
+                </div>
                 <div class="measures-input-container">
-                    <div class="measure-item">
-                        <h2></h2>
-                        <h2>CM</h2>
-                        <h2>INCH</h2>
-                    </div>
-                    <div class="draggable measure-item" draggable="true"  data-type="length">
+                    <div class="draggable measure-item" draggable="true" data-type="length">
                         <h2>Length</h2>
                         <input
                             type="text"
@@ -91,7 +91,7 @@
                             data-measure-type="inch"
                         />
                     </div>
-                    <div class="draggable measure-item" draggable="true"  data-type="shoulder_width">
+                    <div class="draggable measure-item" draggable="true" data-type="shoulder_width">
                         <h2>Shoulder width</h2>
                         <input
                             type="text"
@@ -262,7 +262,7 @@
                         />
                     </div>
                 </div>
-                <div id="error-message-body" class="error-container"></div>
+                <div id="error-message-measurements" class="error-container"></div>
             </section>
             <!-- Shoe size -->
             <section class="shoe-container container">
