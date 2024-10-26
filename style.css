@@ -14,8 +14,8 @@
 
     --border_shadow: 0px 0px 10px 2px, inset 0px 0px 10px 2px;
 
-    --headerFontSize: clamp(1rem, 2vw, 1.2rem);
-    --bodyFontSize: clamp(0.9rem, 2vw, 1.2rem);
+    --headerFontSize: clamp(0.9rem, 1.9vw, 1rem);
+    --bodyFontSize: clamp(0.7rem, 1.7vw, 0.9rem);
     /* 13px - 16px */
     --text-size: clamp(0.8125rem, 1.6vw, 1rem);
     --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
