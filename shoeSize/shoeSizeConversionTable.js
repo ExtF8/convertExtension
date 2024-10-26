@@ -1,3 +1,21 @@
+/**
+ * Shoe size conversion table for various regional standards.
+ * Provides a comprehensive mapping of shoe sizes across different standarts, including:
+ * European (EUR), Mondo (sports shoe metric sizing), UK, US Men's, US Women's,
+ * Australian Men's, and Australian Women's sizes.
+ * Each object in the table represents a specific shoe size, enabling cross-standard conversion.
+ *
+ * @typedef {Object} ShoeSize
+ * @property {number} eur_shoe_size - European shoe size.
+ * @property {number} mondo_shoe_size - Mondo point size, measured in millimeters.
+ * @property {number} uk_shoe_size - UK shoe size.
+ * @property {number} us_men_shoe_size - US men's shoe size.
+ * @property {number} us_women_shoe_size: - US women's shoe size.
+ * @property {number} aus_men_shoe_size - Australian men's shoe size.
+ * @property {number} aus_women_shoe_size - Australian women's shoe size.
+ *
+ * @type {ShoeSize[]}
+ */
 export const shoeSizeConversionTable = [
     {
         eur_shoe_size: 34,
@@ -297,5 +315,3 @@ export const shoeSizeConversionTable = [
         aus_women_shoe_size: 17,
     },
 ];
-
-// console.log(shoeSizeConversionTable);
