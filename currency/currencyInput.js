@@ -1,6 +1,10 @@
 import { getInputValue, displayError } from '../utils/utils.js';
 import { calculateRate } from './calculateRate.js';
 
+/**
+ * Represets a currency converter that handles currency input changer and conversion calculations.
+ * Initializes the `currencyOutputs` object for storing conversion results
+ */
 export class CurrencyConverter {
     constructor() {
         // The structure of the currencyOutputs object
@@ -11,9 +15,17 @@ export class CurrencyConverter {
         };
     }
 
+    /**
+     * Handles input changes for currency conversion.
+     * Clears any existing error messages and validates the input format.
+     * If valid, proceeds with converting the input value to other currencies.
+     * @param {Event} event - The input event triggered when the user changes the value.
+     * @async
+     */
     async handleInputChanges(event) {
         // Clear the error message
         displayError('', 'error-message-currency');
+
         let value = getInputValue(event.target);
         const baseCurrency = event.target.getAttribute('data-input-type');
 
@@ -44,14 +56,30 @@ export class CurrencyConverter {
             return;
         }
 
+        // Process calculations based on baseCurrency and input value
         await this.processCalculations(baseCurrency, floatValue);
     }
 
+    /**
+     * Processes the calculations after receiving valid input.
+     * Converts the base currency value to other currencies and updated the display.
+     * @param {string} baseCurrency - The base currency type.
+     * @param {number} value - The input value to convert.
+     * @async
+     */
     async processCalculations(baseCurrency, value) {
         await this.calculateOutputs(baseCurrency, value);
         this.updateOutputs(baseCurrency);
     }
 
+    /**
+     * Performs currency conversion calculations based on the base currency.
+     * Calls `calculateRate` to fetch the conversion rates and stores the results in `currencyOutputs`.
+     * @param {string} baseCurrency - The base currency to convert from.
+     * @param {number} value - The input value to convert from the base currency.
+     * @async
+     * @throws Will throw an error if there is an issue with the conversion process.
+     */
     async calculateOutputs(baseCurrency, value) {
         try {
             switch (baseCurrency) {
@@ -79,8 +107,12 @@ export class CurrencyConverter {
         }
     }
 
+    /**
+     * Updates the output fields for all currencies based on the base currency.
+     * Fill the input fields for other currencies with the converted values.
+     * @param {string} baseCurrency - The base currency used to perform the conversion.
+     */
     updateOutputs(baseCurrency) {
-        console.log('Update Out Puts')
         const usdInput = document.querySelector(`[data-input-type='usd']`);
         const eurInput = document.querySelector(`[data-input-type='eur']`);
         const gbpInput = document.querySelector(`[data-input-type='gbp']`);
